@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrolling Logo Carousel</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    font-family: sans-serif;
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 20s linear infinite;
+  }
+
+  .carousel-track img {
+    height: 60px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  /* Gradient edges (optional) */
+  .carousel::before,
+  .carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #fff 0%, transparent 100%);
+  }
+
+  .carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #fff 0%, transparent 100%);
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* scroll width of first half */
+  }
+</style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-track">
+    <!-- First set of logos -->
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661aff4afb230d0e70ee271_optimon-logo.png" alt="Optimon">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69bb36a9c3f98c95ad9_ryde-logo.png" alt="Ryde">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b38984850d5401e88_chartprime-logo.png" alt="ChartPrime">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b1c61dd67bd39ef0a_digitalempires-logo.png" alt="DigitalEmpires">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/66f51a97072488466910035f_dbi-hotels.png" alt="DBI Hotels">
+
+    <!-- Repeat logos for seamless scroll -->
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661aff4afb230d0e70ee271_optimon-logo.png" alt="Optimon">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69bb36a9c3f98c95ad9_ryde-logo.png" alt="Ryde">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b38984850d5401e88_chartprime-logo.png" alt="ChartPrime">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b1c61dd67bd39ef0a_digitalempires-logo.png" alt="DigitalEmpires">
+    <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/66f51a97072488466910035f_dbi-hotels.png" alt="DBI Hotels">
+  </div>
+</div>
+
+</body>
+</html>
