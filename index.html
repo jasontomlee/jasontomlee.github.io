@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logo Carousel</title>
+
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: #fff;
+      background: transparent !important;
       display: flex;
       justify-content: center;
       font-family: sans-serif;
@@ -19,6 +20,7 @@
       width: 100%;
       overflow: hidden;
       padding: 1rem 0;
+      background: transparent;
     }
 
     .carousel-track {
@@ -29,11 +31,11 @@
     }
 
     .carousel-track img {
-      height: 60px;  /* adjust as needed */
+      height: 60px; /* adjust size if needed */
       flex-shrink: 0;
     }
 
-    /* gradient edges */
+    /* Soft transparent fade edges */
     .carousel::before,
     .carousel::after {
       content: "";
@@ -42,35 +44,37 @@
       width: 100px;
       height: 100%;
       z-index: 2;
+      pointer-events: none;
     }
 
     .carousel::before {
       left: 0;
-      background: linear-gradient(to right, #fff 0%, transparent 100%);
+      background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
     }
 
     .carousel::after {
       right: 0;
-      background: linear-gradient(to left, #fff 0%, transparent 100%);
+      background: linear-gradient(to left, rgba(0,0,0,0.15), transparent);
     }
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); } /* move by half to loop */
+      100% { transform: translateX(-50%); }
     }
   </style>
 </head>
+
 <body>
   <div class="carousel">
     <div class="carousel-track">
-      <!-- First set of logos -->
+      <!-- First set -->
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661aff4afb230d0e70ee271_optimon-logo.png" alt="Optimon">
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69bb36a9c3f98c95ad9_ryde-logo.png" alt="Ryde">
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b38984850d5401e88_chartprime-logo.png" alt="ChartPrime">
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b1c61dd67bd39ef0a_digitalempires-logo.png" alt="DigitalEmpires">
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/66f51a97072488466910035f_dbi-hotels.png" alt="DBI Hotels">
-      
-      <!-- Repeat logos for seamless scroll -->
+
+      <!-- Duplicate for seamless loop -->
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661aff4afb230d0e70ee271_optimon-logo.png" alt="Optimon">
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69bb36a9c3f98c95ad9_ryde-logo.png" alt="Ryde">
       <img src="https://cdn.prod.website-files.com/64dcb53932a2514bd5e24d7a/6661a69b38984850d5401e88_chartprime-logo.png" alt="ChartPrime">
