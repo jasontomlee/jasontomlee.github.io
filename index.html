@@ -1,67 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logo Carousel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Carousel</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: transparent !important;
-      display: flex;
-      justify-content: center;
-      font-family: sans-serif;
-    }
+<style>
+  /* Prevent layout expansion */
+  * {
+    box-sizing: border-box;
+  }
 
-    .carousel {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      padding: 1rem 0;
-      background: transparent;
-    }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent !important; /* removed white */
+    overflow-x: hidden; /* prevent scrollbars */
+    font-family: sans-serif;
+  }
 
-    .carousel-track {
-      display: flex;
-      gap: 2rem;
-      animation: scroll 20s linear infinite;
-      white-space: nowrap;
-    }
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* contain animation */
+    padding: 1rem 0;
+    background: transparent;
+  }
 
-    .carousel-track img {
-      height: 60px; /* adjust size if needed */
-      flex-shrink: 0;
-    }
+  /* KEY FIX: inline-flex prevents width expansion */
+  .carousel-track {
+    display: inline-flex;
+    gap: 2rem;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+  }
 
-    /* Soft transparent fade edges */
-    .carousel::before,
-    .carousel::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 100px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
+  .carousel-track img {
+    height: 60px;
+    flex-shrink: 0;
+  }
 
-    .carousel::before {
-      left: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
-    }
+  /* Transparent fade edges (no white background) */
+  .carousel::before,
+  .carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+  }
 
-    .carousel::after {
-      right: 0;
-      background: linear-gradient(to left, rgba(0,0,0,0.15), transparent);
-    }
+  .carousel::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0.8), transparent);
+  }
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-  </style>
+  .carousel::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255,255,255,0.8), transparent);
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
 </head>
 
 <body>
