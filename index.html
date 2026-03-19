@@ -1,104 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Logo Carousel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Carousel</title>
 
-<style>
-  * {
-    box-sizing: border-box;
-  }
+  <style>
+    /* Prevent layout expansion */
+    * {
+      box-sizing: border-box;
+    }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    overflow-x: hidden;
-    font-family: sans-serif;
-  }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent !important;
+      overflow-x: hidden;
+      font-family: sans-serif;
+    }
 
-  .carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding: 1.5rem 0;
-  }
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 1rem 0;
+      background: transparent;
+    }
 
-  /* Track */
-  .carousel-track {
-    display: flex;
-    width: max-content;
-    gap: 1.5rem;
-    animation: scroll 25s linear infinite;
-  }
+    /* Track */
+    .carousel-track {
+      display: inline-flex;
+      gap: 1.5rem;
+      animation: scroll 25s linear infinite;
+      white-space: nowrap;
+      will-change: transform;
+    }
 
-  /* Pause on hover */
-  .carousel:hover .carousel-track {
-    animation-play-state: paused;
-  }
+    /* Images */
+    .carousel-track img {
+      height: 75px;
+      flex-shrink: 0;
+    }
 
-  /* Images */
-  .carousel-track img {
-    height: 80px; /* bigger = less visible gaps */
-    flex-shrink: 0;
-  }
+    /* Fade edges */
+    .carousel::before,
+    .carousel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
 
-  /* Fade edges (actually transparent-friendly now) */
-  .carousel::before,
-  .carousel::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 120px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 2;
-  }
+    .carousel::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
+    }
 
-  .carousel::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);
-  }
+    .carousel::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(0,0,0,0.3), transparent);
+    }
 
-  .carousel::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(0,0,0,0.4), transparent);
-  }
-
-  /* Smooth infinite scroll */
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); }
-  }
-</style>
+    /* Animation */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-33.333%);
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="carousel">
+    <div class="carousel-track">
 
-<div class="carousel">
-  <div class="carousel-track">
+      <!-- ===== SET 1 ===== -->
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/4a6b6e3e-8d0f-4082-8446-b2c53c9e5caf/creative_2x.png" alt="Icon1">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/c67734cc-4304-4adf-9d39-04010522bd55/director_8x.png" alt="Icon2">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/88c92453-57c1-46e1-bfca-a845d47922e1/Tablet_icon_4x.png" alt="Icon3">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/2a017a35-17ac-4bbb-a290-106bba9e8b1b/fan_2x.png" alt="Icon4">
 
-    <!-- ===== SET 1 ===== -->
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/4a6b6e3e-8d0f-4082-8446-b2c53c9e5caf/creative_2x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/c67734cc-4304-4adf-9d39-04010522bd55/director_8x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/88c92453-57c1-46e1-bfca-a845d47922e1/Tablet_icon_4x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/2a017a35-17ac-4bbb-a290-106bba9e8b1b/fan_2x.png" />
+      <!-- ===== SET 2 ===== -->
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/4a6b6e3e-8d0f-4082-8446-b2c53c9e5caf/creative_2x.png" alt="Icon5">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/c67734cc-4304-4adf-9d39-04010522bd55/director_8x.png" alt="Icon6">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/88c92453-57c1-46e1-bfca-a845d47922e1/Tablet_icon_4x.png" alt="Icon7">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/2a017a35-17ac-4bbb-a290-106bba9e8b1b/fan_2x.png" alt="Icon8">
 
-    <!-- ===== SET 2 ===== -->
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/4a6b6e3e-8d0f-4082-8446-b2c53c9e5caf/creative_2x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/c67734cc-4304-4adf-9d39-04010522bd55/director_8x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/88c92453-57c1-46e1-bfca-a845d47922e1/Tablet_icon_4x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/2a017a35-17ac-4bbb-a290-106bba9e8b1b/fan_2x.png" />
+      <!-- ===== SET 3 (NEW - fixes gap) ===== -->
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/4a6b6e3e-8d0f-4082-8446-b2c53c9e5caf/creative_2x.png" alt="Icon9">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/c67734cc-4304-4adf-9d39-04010522bd55/director_8x.png" alt="Icon10">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/88c92453-57c1-46e1-bfca-a845d47922e1/Tablet_icon_4x.png" alt="Icon11">
+      <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/2a017a35-17ac-4bbb-a290-106bba9e8b1b/fan_2x.png" alt="Icon12">
 
-    <!-- ===== SET 3 ===== -->
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/4a6b6e3e-8d0f-4082-8446-b2c53c9e5caf/creative_2x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/c67734cc-4304-4adf-9d39-04010522bd55/director_8x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/88c92453-57c1-46e1-bfca-a845d47922e1/Tablet_icon_4x.png" />
-    <img src="https://file.notion.so/f/f/ecf24eb6-d200-402b-9b77-c27449a0e63a/2a017a35-17ac-4bbb-a290-106bba9e8b1b/fan_2x.png" />
-
+    </div>
   </div>
-</div>
-
 </body>
 </html>
